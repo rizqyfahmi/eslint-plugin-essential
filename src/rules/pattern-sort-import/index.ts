@@ -1,5 +1,4 @@
-import { TSESTree } from "@typescript-eslint/types"
-import { ESLintUtils } from "@typescript-eslint/utils"
+import { ESLintUtils, TSESTree } from "@typescript-eslint/utils"
 
 type MessageIds = "unsorted"
 type Options = [string[]]
