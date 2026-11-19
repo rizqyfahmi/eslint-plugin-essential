@@ -1,5 +1,6 @@
-const parser = require("@typescript-eslint/parser");
-const eslintPlugin = require("@typescript-eslint/eslint-plugin");
+const tseslint = require("typescript-eslint");
+const parser = tseslint.parser;
+const eslintPlugin = tseslint.plugin;
 const stylistic = require("@stylistic/eslint-plugin");
 
 const eslintConfig = [
