@@ -1,3 +1,21 @@
+## [1.7.1](https://github.com/rizqyfahmi/eslint-plugin-essential/compare/v1.7.0...v1.7.1) (2026-11-19)
+
+### 🐛 Bug Fixes
+
+* **rule:** Show configured pattern in pattern-restricted-import message ([3b5e821](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/3b5e821cf4ac5ae7649a401cf94f9f7a80d4ffca))
+* **rule:** Use context.sourceCode in pattern-comment for ESLint 10 ([d42ee37](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/d42ee3723ecc3cb8561c0707235102e44d196c86))
+
+### ⚙️ CI/CD
+
+* **pipeline:** Run workflows on Node.js 26 ([50a4041](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/50a4041237331c333e4b388d992b481e880f6d98))
+* **pipeline:** Upgrade gh-action-sigstore-python to v3.5.0 ([75b971d](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/75b971df14ddeb314af46a8f43429b115ce9f8e5))
+* **pipeline:** Upgrade scorecard-action to v2.6.0 ([49a8aeb](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/49a8aeb02a744d23dedf6c0b59080e9f28aa782d))
+
+### 🏗 Build
+
+* **deps:** Pin conventional-changelog-conventionalcommits to v9 ([94efafc](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/94efafca20a867851ed632cfcaaf65d179b4a0c7))
+* **deps:** Upgrade dependencies to latest compatible versions ([b1fb268](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/b1fb2681667539a6ea8e63b3a4a9de4fad640527))
+
 ## 1.7.0 (2025-09-27)
 
 * docs(readme): Improve formatting and clarify usage instructions for pattern-restricted-import ([35f446c](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/35f446c))
