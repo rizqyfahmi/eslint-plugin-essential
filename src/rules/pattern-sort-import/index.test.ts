@@ -1,16 +1,11 @@
-import * as NodeTest from "node:test"
 import { RuleTester } from "@typescript-eslint/rule-tester"
 import dedent from "dedent"
 import rule from "."
 
-RuleTester.afterAll = NodeTest.after
-RuleTester.describe = NodeTest.describe
-RuleTester.it = NodeTest.it
-
 const ruleTester = new RuleTester({})
 
 describe("pattern-sort-import rule", () => {
-    test("should pass when imports are correctly sorted", () => {
+    describe("should pass when imports are correctly sorted", () => {
         ruleTester.run("pattern-sort-import", rule, {
             valid: [
                 {
@@ -60,7 +55,7 @@ describe("pattern-sort-import rule", () => {
         })
     })
 
-    test("should fix incorrectly sorted imports", () => {
+    describe("should fix incorrectly sorted imports", () => {
         ruleTester.run("pattern-sort-import", rule, {
             valid: [],
             invalid: [

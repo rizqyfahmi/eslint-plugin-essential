@@ -1,15 +1,10 @@
-import * as NodeTest from "node:test"
 import { RuleTester } from "@typescript-eslint/rule-tester"
 import rule from "."
-
-RuleTester.afterAll = NodeTest.after
-RuleTester.describe = NodeTest.describe
-RuleTester.it = NodeTest.it
 
 const ruleTester = new RuleTester()
 
 describe("no-else rule", () => {
-    test("allows simple if without else", () => {
+    describe("allows simple if without else", () => {
         ruleTester.run("no-else", rule, {
             valid: [
                 {
@@ -24,7 +19,7 @@ describe("no-else rule", () => {
         })
     })
 
-    test("allows if-else-if chain", () => {
+    describe("allows if-else-if chain", () => {
         ruleTester.run("no-else", rule, {
             valid: [
                 {
@@ -41,7 +36,7 @@ describe("no-else rule", () => {
         })
     })
 
-    test("allows early return pattern", () => {
+    describe("allows early return pattern", () => {
         ruleTester.run("no-else", rule, {
             valid: [
                 {
@@ -57,7 +52,7 @@ describe("no-else rule", () => {
         })
     })
 
-    test("disallows else block", () => {
+    describe("disallows else block", () => {
         ruleTester.run("no-else", rule, {
             valid: [],
             invalid: [
@@ -75,7 +70,7 @@ describe("no-else rule", () => {
         })
     })
 
-    test("disallows nested else block", () => {
+    describe("disallows nested else block", () => {
         ruleTester.run("no-else", rule, {
             valid: [],
             invalid: [

@@ -1,10 +1,5 @@
-import * as NodeTest from "node:test"
 import { RuleTester } from "@typescript-eslint/rule-tester"
 import rule from "."
-
-RuleTester.afterAll = NodeTest.after
-RuleTester.describe = NodeTest.describe
-RuleTester.it = NodeTest.it
 
 const options: [string[]] = [
     ["^@internal/.*", "^\\.\\./utils/.*"],
@@ -14,7 +9,7 @@ const options: [string[]] = [
 const ruleTester = new RuleTester({})
 
 describe("pattern-restricted-import", () => {
-    it("should allow unrelated imports", () => {
+    describe("should allow unrelated imports", () => {
         ruleTester.run("pattern-restricted-import", rule, {
             valid: [
                 {
@@ -30,7 +25,7 @@ describe("pattern-restricted-import", () => {
         })
     })
 
-    it("should disallow @internal imports", () => {
+    describe("should disallow @internal imports", () => {
         ruleTester.run("pattern-restricted-import", rule, {
             valid: [],
             invalid: [
@@ -51,7 +46,7 @@ describe("pattern-restricted-import", () => {
         })
     })
 
-    it("should disallow relative utils imports", () => {
+    describe("should disallow relative utils imports", () => {
         ruleTester.run("pattern-restricted-import", rule, {
             valid: [],
             invalid: [
@@ -72,7 +67,7 @@ describe("pattern-restricted-import", () => {
         })
     })
 
-    it("should allow import when no pattern matches", () => {
+    describe("should allow import when no pattern matches", () => {
         ruleTester.run("pattern-restricted-import", rule, {
             valid: [
                 {
@@ -84,7 +79,7 @@ describe("pattern-restricted-import", () => {
         })
     })
 
-    it("should allow import if patterns array is empty", () => {
+    describe("should allow import if patterns array is empty", () => {
         ruleTester.run("pattern-restricted-import", rule, {
             valid: [
                 {
@@ -97,7 +92,7 @@ describe("pattern-restricted-import", () => {
     })
 
     // ✅ NEW TEST CASE - no options provided
-    it("should allow import when no options are provided (cover fallback path)", () => {
+    describe("should allow import when no options are provided (cover fallback path)", () => {
         ruleTester.run("pattern-restricted-import", rule, {
             valid: [
                 {

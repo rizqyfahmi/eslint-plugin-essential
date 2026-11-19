@@ -1,10 +1,5 @@
-import * as NodeTest from "node:test"
 import { RuleTester } from "@typescript-eslint/rule-tester"
 import rule from "."
-
-RuleTester.afterAll = NodeTest.after
-RuleTester.describe = NodeTest.describe
-RuleTester.it = NodeTest.it
 
 const options = [
     {
@@ -14,7 +9,7 @@ const options = [
 
 const ruleTester = new RuleTester({})
 describe("pattern-comment rule", () => {
-    test("should allow TODO comment", () => {
+    describe("should allow TODO comment", () => {
         ruleTester.run("pattern-comment", rule, {
             valid: [
                 {
@@ -26,7 +21,7 @@ describe("pattern-comment rule", () => {
         })
     })
 
-    test("should allow @public block comment", () => {
+    describe("should allow @public block comment", () => {
         ruleTester.run("pattern-comment", rule, {
             valid: [
                 {
@@ -38,7 +33,7 @@ describe("pattern-comment rule", () => {
         })
     })
 
-    test("should allow @deprecated JSDoc", () => {
+    describe("should allow @deprecated JSDoc", () => {
         ruleTester.run("pattern-comment", rule, {
             valid: [
                 {
@@ -50,7 +45,7 @@ describe("pattern-comment rule", () => {
         })
     })
 
-    test("should report normal line comment", () => {
+    describe("should report normal line comment", () => {
         ruleTester.run("pattern-comment", rule, {
             valid: [],
             invalid: [
@@ -70,7 +65,7 @@ describe("pattern-comment rule", () => {
         })
     })
 
-    test("should report normal block comment", () => {
+    describe("should report normal block comment", () => {
         ruleTester.run("pattern-comment", rule, {
             valid: [],
             invalid: [
@@ -87,7 +82,7 @@ describe("pattern-comment rule", () => {
         })
     })
 
-    test("should report JSDoc without allowed tag", () => {
+    describe("should report JSDoc without allowed tag", () => {
         ruleTester.run("pattern-comment", rule, {
             valid: [],
             invalid: [

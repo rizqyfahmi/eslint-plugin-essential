@@ -1,15 +1,10 @@
-import * as NodeTest from "node:test"
 import { RuleTester } from "@typescript-eslint/rule-tester"
 import rule from "."
-
-RuleTester.afterAll = NodeTest.after
-RuleTester.describe = NodeTest.describe
-RuleTester.it = NodeTest.it
 
 const ruleTester = new RuleTester({})
 
 describe("max-nested-loops", () => {
-    test("should allow one level of loop nesting (default maxDepth: 1)", () => {
+    describe("should allow one level of loop nesting (default maxDepth: 1)", () => {
         ruleTester.run("max-nested-loops", rule, {
             valid: [
                 {
@@ -25,7 +20,7 @@ describe("max-nested-loops", () => {
         })
     })
 
-    test("should allow two levels of nesting when maxDepth is 2", () => {
+    describe("should allow two levels of nesting when maxDepth is 2", () => {
         ruleTester.run("max-nested-loops", rule, {
             valid: [
                 {
@@ -43,7 +38,7 @@ describe("max-nested-loops", () => {
         })
     })
 
-    test("should report too deep nesting (do-while inside while inside for)", () => {
+    describe("should report too deep nesting (do-while inside while inside for)", () => {
         ruleTester.run("max-nested-loops", rule, {
             valid: [],
             invalid: [
@@ -70,7 +65,7 @@ describe("max-nested-loops", () => {
         })
     })
 
-    test("should report too deep nesting with three levels (while > for > for)", () => {
+    describe("should report too deep nesting with three levels (while > for > for)", () => {
         ruleTester.run("max-nested-loops", rule, {
             valid: [],
             invalid: [
@@ -97,7 +92,7 @@ describe("max-nested-loops", () => {
         })
     })
 
-    test("should use default maxDepth (1) and report second-level nesting", () => {
+    describe("should use default maxDepth (1) and report second-level nesting", () => {
         ruleTester.run("max-nested-loops", rule, {
             valid: [],
             invalid: [

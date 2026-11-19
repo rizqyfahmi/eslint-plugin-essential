@@ -1,15 +1,10 @@
-import * as NodeTest from "node:test"
 import { RuleTester } from "@typescript-eslint/rule-tester"
 import rule from "."
-
-RuleTester.afterAll = NodeTest.after
-RuleTester.describe = NodeTest.describe
-RuleTester.it = NodeTest.it
 
 const ruleTester = new RuleTester({})
 
 describe("max-nested-conditionals rule", () => {
-    test("should allow not a conditional node", () => {
+    describe("should allow not a conditional node", () => {
         ruleTester.run("max-nested-conditionals", rule, {
             valid: [
                 {
@@ -22,7 +17,7 @@ describe("max-nested-conditionals rule", () => {
         })
     })
 
-    test("should allow nesting within default depth (1)", () => {
+    describe("should allow nesting within default depth (1)", () => {
         ruleTester.run("max-nested-conditionals", rule, {
             valid: [
                 {
@@ -51,7 +46,7 @@ describe("max-nested-conditionals rule", () => {
         })
     })
 
-    test("should allow nesting up to custom depth (2)", () => {
+    describe("should allow nesting up to custom depth (2)", () => {
         ruleTester.run("max-nested-conditionals", rule, {
             valid: [
                 {
@@ -89,7 +84,7 @@ describe("max-nested-conditionals rule", () => {
         })
     })
 
-    test("should report too deep if statements", () => {
+    describe("should report too deep if statements", () => {
         ruleTester.run("max-nested-conditionals", rule, {
             valid: [],
             invalid: [
@@ -120,7 +115,7 @@ describe("max-nested-conditionals rule", () => {
         })
     })
 
-    test("should report too deep ternary expressions", () => {
+    describe("should report too deep ternary expressions", () => {
         ruleTester.run("max-nested-conditionals", rule, {
             valid: [],
             invalid: [
@@ -147,7 +142,7 @@ describe("max-nested-conditionals rule", () => {
         })
     })
 
-    test("should report too deep switch inside if inside switch", () => {
+    describe("should report too deep switch inside if inside switch", () => {
         ruleTester.run("max-nested-conditionals", rule, {
             valid: [],
             invalid: [
@@ -178,7 +173,7 @@ describe("max-nested-conditionals rule", () => {
         })
     })
 
-    test("should allow else-if chains as same depth", () => {
+    describe("should allow else-if chains as same depth", () => {
         ruleTester.run("max-nested-conditionals", rule, {
             valid: [
                 {

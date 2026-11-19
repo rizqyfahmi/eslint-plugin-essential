@@ -1,15 +1,10 @@
-import * as NodeTest from "node:test"
 import { RuleTester } from "@typescript-eslint/rule-tester"
 import rule from "."
-
-RuleTester.afterAll = NodeTest.after
-RuleTester.describe = NodeTest.describe
-RuleTester.it = NodeTest.it
 
 const ruleTester = new RuleTester()
 
 describe("max-alternative-conditionals rule", () => {
-    test("should enforce limits with explicit options", () => {
+    describe("should enforce limits with explicit options", () => {
         ruleTester.run("explicit-options", rule, {
             valid: [
                 {
@@ -61,7 +56,7 @@ describe("max-alternative-conditionals rule", () => {
         })
     })
 
-    test("should apply default values when no options are provided", () => {
+    describe("should apply default values when no options are provided", () => {
         ruleTester.run("default-options", rule, {
             valid: [
                 {
@@ -110,7 +105,7 @@ describe("max-alternative-conditionals rule", () => {
     })
 
     // Test cases where usage is fully disallowed (0)
-    test("should disallow usage when maxElseIf or maxCase is 0", () => {
+    describe("should disallow usage when maxElseIf or maxCase is 0", () => {
         ruleTester.run("disallowed-options", rule, {
             valid: [
                 {
