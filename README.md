@@ -33,7 +33,7 @@ export default {
   },
   rules: {
     "eslint-plugin-essential/max-nested-loops": ["error", { maxDepth: 1 }],
-    "eslint-plugin-essential/max-nested-conditionals": ["error", { maxDepth: 1 }],
+    "eslint-plugin-essential/max-nested-conditions": ["error", { maxDepth: 1 }],
     "eslint-plugin-essential/max-alternative-conditions": ["error", {
       maxElseIf: 2,
       maxCase: 5
@@ -46,7 +46,7 @@ export default {
       "^@/",
       "^\\.",
     ]],
-    "eslint-plugin-essential/pattern-comments": ["error"]
+    "eslint-plugin-essential/pattern-comment": ["error"]
   },
 };
 ```
@@ -89,7 +89,7 @@ for (let i = 0; i < 10; i++) {
 
 ---
 
-### 2. `max-nested-conditionals`
+### 2. `max-nested-conditions`
 
 **Limits the depth of nested conditional statements like `if`, `switch`, and ternary (`?:`) expressions.**
 
@@ -124,7 +124,7 @@ const result = condition1 ? 'A' : 'B';
 * `maxDepth` (number) – The maximum allowed nesting level (default: `1`)
 
 ```js
-"eslint-plugin-essential/max-nested-conditionals": ["error", { maxDepth: 1 }]
+"eslint-plugin-essential/max-nested-conditions": ["error", { maxDepth: 1 }]
 ```
 
 ---
@@ -265,7 +265,7 @@ Example:
 
 ---
 
-### 6. `pattern-comments`
+### 6. `pattern-comment`
 
 **Disallows all comments that do not match a specific pattern (regex).**
 Use this rule to enforce a consistent format for all comments (e.g., requiring tags like `TODO:`, `@public`, etc.).
@@ -295,7 +295,7 @@ Use this rule to enforce a consistent format for all comments (e.g., requiring t
 You can customize which comment formats are allowed using a regular expression string.
 
 ```js
-"eslint-plugin-essential/pattern-comments": ["error", {
+"eslint-plugin-essential/pattern-comment": ["error", {
   allowPattern: "^((TODO|FIXME|NOTE|BUG|HACK|OPTIMIZE|REVIEW|SECURITY):|@(public|private|deprecated))"
 }]
 ```
