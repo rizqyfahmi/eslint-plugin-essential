@@ -29,21 +29,22 @@ const rule = createRule<Options, MessageIds>({
         // Now context.options[0] is an array of strings, or undefined
         const rawPatterns = context.options[0] || []
 
-        // Convert all string patterns to RegExp objects
-        const patterns = rawPatterns.map((pattern) => new RegExp(pattern))
+        // Compile each pattern once, keeping the raw string so messages show it as configured
+        // (RegExp#toString() would escape "/" as "\/")
+        const patterns = rawPatterns.map((source) => ({ source, regex: new RegExp(source) }))
 
         return {
             "ImportDeclaration": (node: TSESTree.ImportDeclaration) => {
                 const importPath = node.source.value
 
-                for (const pattern of patterns) {
-                    if (pattern.test(importPath)) {
+                for (const { source, regex } of patterns) {
+                    if (regex.test(importPath)) {
                         context.report({
                             node: node.source,
                             messageId: "restrictedImport",
                             data: {
                                 importPath,
-                                pattern: pattern.toString(),
+                                pattern: `/${source}/`,
                             },
                         })
                     }
