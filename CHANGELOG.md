@@ -1,3 +1,17 @@
+## [1.7.2](https://github.com/rizqyfahmi/eslint-plugin-essential/compare/v1.7.1...v1.7.2) (2026-11-20)
+
+### ⚙️ CI/CD
+
+* **pipeline:** Upgrade GitHub Actions to Node.js 24 runtimes ([c1cf6c2](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/c1cf6c25b4bc4da64aa7df031cf6d238629e46fa))
+
+### 🔧 Maintenance
+
+* **release:** 1.7.2 [skip ci] ([b1530f8](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/b1530f8addfb60d278ce5b0e692d2aaceee11a09))
+
+### 📝 Documentation
+
+* **readme:** Use registered rule names for max-nested-conditions and pattern-comment ([a47129c](https://github.com/rizqyfahmi/eslint-plugin-essential/commit/a47129c5bd45a5f8f62877447113941e67f2a095))
+
 ## [1.7.2](https://github.com/rizqyfahmi/eslint-plugin-essential/compare/v1.7.1...v1.7.2) (2026-11-19)
 
 ### ⚙️ CI/CD
